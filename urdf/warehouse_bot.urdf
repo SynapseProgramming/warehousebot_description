@@ -2,7 +2,7 @@
 <robot name="warehouse_bot"
   xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <link name="laser_front">
+  <link name="base_laser">
     <visual>
       <geometry>
         <mesh filename="package://warehousebot_description/meshes/sick_tim_571.stl"/>
@@ -70,7 +70,7 @@
 
   <joint name="base_link_to_laser_front" type="fixed">
     <parent link="base_link"/>
-    <child link="laser_front"/>
+    <child link="base_laser"/>
     <origin xyz="0.169 0.0 0.035856" rpy="3.142 0.0 0.0"/>
   </joint>
 
