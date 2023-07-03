@@ -2,6 +2,25 @@
 <robot name="warehouse_bot"
   xmlns:xacro="http://ros.org/wiki/xacro">
 
+  <link name="wheel_left_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://warehousebot_description/meshes/left_wheel.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+  </link>
+  
+  <link name="wheel_right_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://warehousebot_description/meshes/right_wheel.stl" scale="0.01 0.01 0.01"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+  </link>
+
+
   <link name="base_footprint"/>
 
   <link name="base_link">
@@ -14,11 +33,7 @@
       </material>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
-
   </link>
-
-
-
 
 
 
@@ -27,5 +42,19 @@
     <child link="base_link"/>
     <origin xyz="0.0 0.0 0.05"/>
   </joint>`
+
+  <joint name="wheel_left_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="wheel_left_link"/>
+    <origin xyz="0 0.159974 0.0485" rpy="1.57 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name="wheel_right_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="wheel_right_link"/>
+    <origin xyz="0 -0.159974 0.0485" rpy="1.57 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
 
 </robot>
