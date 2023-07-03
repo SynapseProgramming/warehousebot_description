@@ -41,10 +41,10 @@ def generate_launch_description():
                 description='run rviz')
 
 
-    # declare_rviz_config=DeclareLaunchArgument(
-    #             'rviz_config_dir',
-    #             default_value=os.path.join(current_dir,'rviz','display_bot_urdf.rviz'),
-    #             description='default path to rviz config file')
+    declare_rviz_config=DeclareLaunchArgument(
+                'rviz_config_dir',
+                default_value=os.path.join(current_dir,'rviz','view_warehousebot.rviz'),
+                description='default path to rviz config file')
 
 
 
@@ -64,14 +64,14 @@ def generate_launch_description():
                 package='rviz2',
                executable='rviz2',
                 name='rviz2',
-                # arguments=['-d', rviz_config_dir],
+                arguments=['-d', rviz_config_dir],
                 parameters=[{'use_sim_time': use_sim_time}],
                 output='screen')
 
 
     ld.add_action(declare_rviz_launch)
     ld.add_action(declare_sim_time)
-    # ld.add_action(declare_rviz_config)
+    ld.add_action(declare_rviz_config)
     ld.add_action(launch_rviz2)
     ld.add_action(robot_state_publisher_node)
     return ld
