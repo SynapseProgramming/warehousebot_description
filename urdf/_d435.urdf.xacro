@@ -83,7 +83,7 @@ aluminum peripherial evaluation case.
     <!-- frames for imu -->
     <link name="${name}_imu_optical_frame" />
     <joint name="${name}_imu_joint" type="fixed">
-      <origin xyz = "-0.01174 -0.00552 0.0051" rpy = "0 0 0" />
+      <origin xyz = "-0.01174 -0.00552 0.0051" rpy = "-1.571 0 -1.571" />
       <parent link="${name}_link" />
       <child link="${name}_imu_optical_frame" />
     </joint>
